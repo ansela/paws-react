@@ -1,7 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import Header from "./Heading";
-import Map from "./assets/contact/areaOfService.jpg";
+
+import Header from "../components/Heading";
+
+import Map from "../assets/contact/areaOfService.jpg";
 
 const Contact = () => (
   <Container>

@@ -2,17 +2,10 @@
   display: flex;
   flex-direction: column;
 }
-.paws-nav {
-  order: 1;
-}
 .content {
   order: 2;
   margin-top: 100px;
   margin-bottom: 60px;
 }
-.paws-footer {
-  &__brand {
-    font-size: 12px;
-  }
-}
+
 

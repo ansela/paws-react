@@ -1,12 +1,12 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Home from "./Home";
-import About from "./About";
-import Training from "./Training";
-import Sitting from "./Sitting";
-import Reviews from "./Reviews";
-import Contact from "./Contact";
+import Home from "../pages/Home";
+import About from "../pages/About";
+import Training from "../pages/Training";
+import Sitting from "../pages/Sitting";
+import Reviews from "../pages/Reviews";
+import Contact from "../pages/Contact";
 
 const Content = () => (
   <div className="content">

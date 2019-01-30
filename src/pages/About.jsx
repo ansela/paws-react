@@ -2,12 +2,12 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import { Container, Row, Col } from "reactstrap";
 
-import Header from "./Heading";
+import Header from "../components/Heading";
 
-import About1 from "./assets/about/about1.jpg";
-import About2 from "./assets/about/about2.jpg";
-import About3 from "./assets/about/about3.jpg";
-import About4 from "./assets/about/about4.jpg";
+import About1 from "../assets/about/about1.jpg";
+import About2 from "../assets/about/about2.jpg";
+import About3 from "../assets/about/about3.jpg";
+import About4 from "../assets/about/about4.jpg";
 
 const arr = [About1, About2, About3, About4];
 

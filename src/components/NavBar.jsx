@@ -9,7 +9,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-import logo from "./assets/header2.png";
+import logo from "../assets/header2.png";
 
 const StyledLink = ({ to, children }) => (
   <Link to={to} className="nav-link">

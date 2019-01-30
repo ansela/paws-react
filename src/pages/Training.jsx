@@ -3,12 +3,12 @@ import { Carousel } from "react-responsive-carousel";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 
-import Header from "./Heading";
+import Header from "../components/Heading";
 
-import Training1 from "./assets/training/training1.jpg";
-import Training2 from "./assets/training/training2.jpg";
-import Training3 from "./assets/training/training3.jpg";
-import Training4 from "./assets/training/training4.jpg";
+import Training1 from "../assets/training/training1.jpg";
+import Training2 from "../assets/training/training2.jpg";
+import Training3 from "../assets/training/training3.jpg";
+import Training4 from "../assets/training/training4.jpg";
 
 const arr = [Training1, Training2, Training3, Training4];
 

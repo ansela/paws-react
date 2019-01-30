@@ -2,15 +2,15 @@ import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import { ResponsiveImage, ResponsiveImageSize } from "react-responsive-image";
 
-import Header from "./Heading";
+import Header from "../components/Heading";
 
-import Home1 from "./assets/home/home1.jpg";
-import Home4 from "./assets/home/home4.jpg";
-import Home3 from "./assets/home/home3.jpg";
+import Home1 from "../assets/home/home1.jpg";
+import Home4 from "../assets/home/home4.jpg";
+import Home3 from "../assets/home/home3.jpg";
 
 const Home = () => {
   return (
-    <Container className="home-content">
+    <Container fluid className="home-content">
       <Header text="Welcome" />
       <Row>
         <Col sm="12" md="4">
