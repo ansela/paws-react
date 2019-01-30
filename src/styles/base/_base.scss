@@ -11,5 +11,8 @@
   margin-bottom: 60px;
 }
 .paws-footer {
-  order: 3;
+  &__brand {
+    font-size: 12px;
+  }
 }
+

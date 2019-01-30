@@ -3,7 +3,9 @@ import { Navbar, NavbarBrand } from "reactstrap";
 
 const Footer = () => (
   <Navbar color="light" light fixed="bottom" className="paws-footer">
-    <NavbarBrand>Copyright © Anything Is Pawsible 2015-2019</NavbarBrand>
+    <NavbarBrand className="paws-footer__brand">
+      Copyright © Anything Is Pawsible 2015-2019
+    </NavbarBrand>
   </Navbar>
 );
 

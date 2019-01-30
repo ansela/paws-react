@@ -11,6 +11,12 @@ import { Link } from "react-router-dom";
 
 import logo from "./assets/header2.png";
 
+const StyledLink = ({ to, children }) => (
+  <Link to={to} className="nav-link">
+    {children}
+  </Link>
+);
+
 class NavBar extends React.Component {
   state = { isOpen: false };
 
@@ -20,31 +26,40 @@ class NavBar extends React.Component {
     return (
       <Navbar color="light" light expand="md" fixed="top" className="paws-nav">
         <NavbarBrand href="/">
-          <img src={logo} alt="" />
+          <img src={logo} alt="" className="paws-nav__brand" />
         </NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <Link to="/">
-                <span className="fas fa-star" />
-                Home
-              </Link>
+              <StyledLink to="/">
+                <span className="fas fa-home" /> Home
+              </StyledLink>
             </NavItem>
             <NavItem>
-              <Link to="/about">About</Link>
+              <StyledLink to="/about">
+                <span className="fas fa-shield-alt" /> About
+              </StyledLink>
             </NavItem>
             <NavItem>
-              <Link to="/training">Training</Link>
+              <StyledLink to="/training">
+                <span className="fas fa-dog" /> Training
+              </StyledLink>
             </NavItem>
             <NavItem>
-              <Link to="/sitting">Sitting</Link>
+              <StyledLink to="/sitting">
+                <span className="fas fa-cat" /> Sitting
+              </StyledLink>
             </NavItem>
             <NavItem>
-              <Link to="/reviews">Reviews</Link>
+              <StyledLink to="/reviews">
+                <span className="fas fa-comment" /> Reviews
+              </StyledLink>
             </NavItem>
             <NavItem>
-              <Link to="/contact">Contact</Link>
+              <StyledLink to="/contact">
+                <span className="fas fa-pen" /> Contact
+              </StyledLink>
             </NavItem>
           </Nav>
         </Collapse>
