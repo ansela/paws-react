@@ -7,15 +7,10 @@ import {
   Nav,
   NavItem
 } from "reactstrap";
-import { Link } from "react-router-dom";
+
+import StyledLink from "./StyledLink";
 
 import logo from "../assets/header2.png";
-
-const StyledLink = ({ to, children }) => (
-  <Link to={to} className="nav-link">
-    {children}
-  </Link>
-);
 
 class NavBar extends React.Component {
   state = { isOpen: false };
