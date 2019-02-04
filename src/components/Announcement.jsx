@@ -9,26 +9,21 @@ export default class Announcement extends React.Component {
   static propTypes = {
     id: PropTypes.number.isRequired,
     message: PropTypes.string.isRequired,
-    startDate: PropTypes.number,
-    endDate: PropTypes.number,
     onModify: PropTypes.func.isRequired
-  };
-
-  static defaultProps = {
-    startDate: null,
-    endDate: null
   };
 
   state = { showEditor: false };
 
   showEditor = () => this.setState({ showEditor: true });
 
-  onSave = (text, startDate, endDate) => {
+  onCancel = () => this.setState({ showEditor: false });
+
+  onSave = text => {
     const { id, onModify } = this.props;
-    onModify(id, text, startDate, endDate);
+    onModify(id, text);
     this.setState({ showEditor: false });
-    this.saveAnnouncement({ _id: id, message: text, startDate, endDate }).catch(
-      err => console.error(err)
+    this.saveAnnouncement({ _id: id, message: text }).catch(err =>
+      console.error(err)
     );
   };
 
@@ -48,35 +43,23 @@ export default class Announcement extends React.Component {
     return body;
   };
 
-  renderDate = () => {
-    const { startDate, endDate } = this.props;
-    if (
-      startDate != null &&
-      endDate != null &&
-      Moment(startDate).isValid() &&
-      Moment(endDate).isValid()
-    ) {
-      return (
-        <div>
-          {Moment(startDate).format("MM/DD/YY")}-
-          {Moment(endDate).format("MM/DD/YY")}
-        </div>
-      );
-    }
-    return null;
+  deleteAnnouncement = () => {
+    const { id } = this.props;
+    fetch(`/announcements/${id}`, {
+      method: "DELETE"
+    });
   };
 
   render() {
-    const { message, startDate, endDate } = this.props;
+    const { message } = this.props;
     const { showEditor } = this.state;
 
     if (showEditor) {
       return (
         <AnnouncementEditor
           initialText={message}
-          initialStartDate={startDate}
-          initialEndDate={endDate}
           onSave={this.onSave}
+          onCancel={this.onCancel}
         />
       );
     }
@@ -85,11 +68,18 @@ export default class Announcement extends React.Component {
       <Card className="paws-announcement">
         <CardBody>
           <CardText>{message}</CardText>
-          {this.renderDate()}
         </CardBody>
         <CardFooter>
           <Button className="float-right" onClick={this.showEditor} outline>
             Edit
+          </Button>
+          <Button
+            color="danger"
+            className="float-right"
+            onClick={this.deleteAnnouncement}
+            outline
+          >
+            Delete
           </Button>
         </CardFooter>
       </Card>

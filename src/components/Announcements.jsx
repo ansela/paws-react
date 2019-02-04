@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import Announcement from "./Announcement";
 
 const Announcements = ({ announcements, onModify }) => {
-  const onModifyAnnouncement = (id, message, startDate, endDate) => {
-    console.log(id, message, startDate, endDate);
+  const onModifyAnnouncement = (id, message) => {
+    console.log(id, message);
     const updatedAnnouncements = announcements.map(a => {
-      if (a._id === id) return { ...a, _id: id, message, startDate, endDate };
+      if (a._id === id) return { ...a, _id: id, message };
       return a;
     });
     onModify(updatedAnnouncements);
@@ -24,8 +24,6 @@ const Announcements = ({ announcements, onModify }) => {
           key={a._id}
           id={a._id}
           message={a.message}
-          startDate={a.startDate}
-          endDate={a.endDate}
           onModify={onModifyAnnouncement}
         />
       ))}

@@ -37,6 +37,13 @@ router.put("/:id", (req, res, next) => {
   );
 });
 
+router.delete("/", (req, res, next) => {
+  Announcement.deleteMany({}, (err, post) => {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
 router.delete("/:id", (req, res, next) => {
   Announcement.findOneAndDelete(
     { _id: req.params.id },
