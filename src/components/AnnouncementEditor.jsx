@@ -55,7 +55,7 @@ export default class AnnouncementEditor extends React.Component {
         </CardBody>
         <CardFooter>
           <Button
-            className="float-right"
+            className="float-right paws-announcement__button"
             onClick={this.onCancel}
             color="secondary"
             outline
@@ -63,7 +63,7 @@ export default class AnnouncementEditor extends React.Component {
             Cancel
           </Button>
           <Button
-            className="float-right"
+            className="float-right paws-announcement__button"
             onClick={this.onSave}
             color="success"
             outline

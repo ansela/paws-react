@@ -19,7 +19,6 @@ router.get("/:id", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  console.log("posting", req.body);
   Announcement.create(req.body, (err, post) => {
     if (err) return next(err);
     res.json(post);

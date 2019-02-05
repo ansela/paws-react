@@ -9,7 +9,8 @@ export default class Announcement extends React.Component {
   static propTypes = {
     id: PropTypes.number.isRequired,
     message: PropTypes.string.isRequired,
-    onModify: PropTypes.func.isRequired
+    onModify: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired
   };
 
   state = { showEditor: false };
@@ -43,11 +44,24 @@ export default class Announcement extends React.Component {
     return body;
   };
 
-  deleteAnnouncement = () => {
-    const { id } = this.props;
-    fetch(`/announcements/${id}`, {
+  onDelete = () => {
+    const { id, onDelete } = this.props;
+    this.deleteAnnouncement(id)
+      .then(res => {
+        onDelete(id);
+      })
+      .catch(err => console.error(err));
+  };
+
+  deleteAnnouncement = async id => {
+    const response = await fetch(`/announcements/${id}`, {
       method: "DELETE"
     });
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
   };
 
   render() {
@@ -70,13 +84,17 @@ export default class Announcement extends React.Component {
           <CardText>{message}</CardText>
         </CardBody>
         <CardFooter>
-          <Button className="float-right" onClick={this.showEditor} outline>
+          <Button
+            className="float-right paws-announcement__button"
+            onClick={this.showEditor}
+            outline
+          >
             Edit
           </Button>
           <Button
             color="danger"
-            className="float-right"
-            onClick={this.deleteAnnouncement}
+            className="float-right paws-announcement__button"
+            onClick={this.onDelete}
             outline
           >
             Delete
