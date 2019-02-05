@@ -9,9 +9,8 @@ import Reviews from "../pages/Reviews";
 import Contact from "../pages/Contact";
 import Admin from "../pages/Admin";
 
-const Content = ({ data }) => (
+const Content = () => (
   <div className="content">
-    <div>{data}</div>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
