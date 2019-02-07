@@ -47,7 +47,8 @@ export default class Announcements extends React.Component {
     const response = await fetch("/announcements", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("jwtToken")
       },
       body: JSON.stringify({ message })
     });

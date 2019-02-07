@@ -32,7 +32,8 @@ export default class Announcement extends React.Component {
     const response = await fetch(`/announcements/${announcement._id}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("jwtToken")
       },
       body: JSON.stringify(announcement)
     });
@@ -55,7 +56,10 @@ export default class Announcement extends React.Component {
 
   deleteAnnouncement = async id => {
     const response = await fetch(`/announcements/${id}`, {
-      method: "DELETE"
+      method: "DELETE",
+      headers: {
+        Authorization: localStorage.getItem("jwtToken")
+      }
     });
     const body = await response.json();
 
