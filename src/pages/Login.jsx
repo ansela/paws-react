@@ -12,6 +12,8 @@ import {
   CardBody
 } from "reactstrap";
 
+import { getUrl } from "../utils/api-utils";
+
 export default class Login extends React.Component {
   state = {
     username: "",
@@ -27,7 +29,7 @@ export default class Login extends React.Component {
     const { username, password } = this.state;
 
     axios
-      .post("/auth/login", { username, password })
+      .post(getUrl("/auth/login"), { username, password })
       .then(result => {
         console.log("success!", result);
         localStorage.setItem("jwtToken", result.data.token);

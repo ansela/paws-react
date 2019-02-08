@@ -1,11 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Container, Row, Col } from "reactstrap";
+import { Container } from "reactstrap";
 import axios from "axios";
 
 import Header from "../components/Heading";
 import Announcements from "../components/Announcements";
-import AnnouncementEditor from "../components/AnnouncementEditor";
+
+import { getUrl } from "../utils/api-utils";
 
 export default class Admin extends React.Component {
   state = { announcements: [] };
@@ -15,7 +15,7 @@ export default class Admin extends React.Component {
       "jwtToken"
     );
     axios
-      .get("/auth/loggedIn")
+      .get(getUrl("/auth/loggedIn"))
       .then(result => {
         this.getAnnouncements()
           .then(res => this.setState({ announcements: res }))
@@ -29,7 +29,7 @@ export default class Admin extends React.Component {
   }
 
   getAnnouncements = async () => {
-    const response = await fetch("/announcements");
+    const response = await fetch(getUrl("/announcements"));
 
     if (response.status === 401) {
       console.log("unauthorized, rerouting");

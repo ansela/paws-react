@@ -4,30 +4,11 @@ import { Link } from "react-router-dom";
 
 import Header from "../components/Heading";
 
+import { getUrl } from "../utils/api-utils";
+
 import Home1 from "../assets/home/home1.jpg";
 import Home4 from "../assets/home/home4.jpg";
 import Home3 from "../assets/home/home3.jpg";
-
-const ann = [
-  {
-    id: 1,
-    message: "This is a test",
-    startDate: 1546300800000,
-    endDate: 1550793600000
-  },
-  {
-    id: 2,
-    message: "I am booked",
-    startDate: null,
-    endDate: null
-  },
-  {
-    id: 3,
-    message: "Space is available!",
-    startDate: 1546300800000,
-    endDate: 1550793600000
-  }
-];
 
 export default class Home extends React.Component {
   state = { announcements: [] };
@@ -39,7 +20,7 @@ export default class Home extends React.Component {
   }
 
   getAnnouncements = async () => {
-    const response = await fetch("/announcements");
+    const response = await fetch(getUrl("/announcements"));
     const body = await response.json();
 
     if (response.status !== 200) {

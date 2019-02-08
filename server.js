@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const announcements = require("./routes/announcements");
 const auth = require("./routes/auth");
 const passport = require("./config/passport");
+const path = require("path");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -18,6 +19,8 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, "build")));
 
 app.use(passport.initialize());
 
