@@ -7,3 +7,11 @@
   margin-top: 100px;
   margin-bottom: 60px;
 }
+a {
+  color: #888;
+
+  &:hover {
+    color: #888;
+    text-decoration: underline;
+  }
+}

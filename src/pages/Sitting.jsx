@@ -4,12 +4,23 @@ import { Carousel } from "react-responsive-carousel";
 
 import Header from "../components/Heading";
 
-import Training1 from "../assets/training/training1.jpg";
-import Training2 from "../assets/training/training2.jpg";
-import Training3 from "../assets/training/training3.jpg";
-import Training4 from "../assets/training/training4.jpg";
+import Sitting1 from "../assets/sitting/sitting1.jpg";
+import Sitting2 from "../assets/sitting/sitting2.jpg";
+import Sitting3 from "../assets/sitting/sitting3.jpg";
+import Sitting4 from "../assets/sitting/sitting4.jpg";
+import Sitting5 from "../assets/sitting/sitting5.jpg";
+import Sitting6 from "../assets/sitting/sitting6.jpg";
+import Sitting7 from "../assets/sitting/sitting7.jpg";
 
-const arr = [Training1, Training2, Training3, Training4];
+const arr = [
+  Sitting1,
+  Sitting2,
+  Sitting3,
+  Sitting4,
+  Sitting5,
+  Sitting6,
+  Sitting7
+];
 
 const Sitting = () => {
   return (
