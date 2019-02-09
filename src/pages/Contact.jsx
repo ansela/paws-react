@@ -11,11 +11,45 @@ const Contact = () => (
     <Row>
       <Col md="6">
         <ul style={{ listStyleType: "none" }}>
-          <li>facebook</li>
-          <li>twitter</li>
-          <li>instagram</li>
-          <li>anythingispawsible33@yahoo.com</li>
-          <li>(904) 373-5097</li>
+          <li>
+            <span className="fab fa-facebook-square" />{" "}
+            <a
+              href="https://www.facebook.com/anythingispawsible33"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              facebook
+            </a>
+          </li>
+          <li>
+            <span className="fab fa-twitter-square" />{" "}
+            <a
+              href="https://twitter.com/IsPawsible"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              twitter
+            </a>
+          </li>
+          <li>
+            <span className="fab fa-instagram" />{" "}
+            <a
+              href="https://instagram.com/anythingispawsible/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              instagram
+            </a>
+          </li>
+          <li>
+            <span className="fas fa-envelope" />{" "}
+            <a href="mailto:anythingispawsible33@yahoo.com">
+              anythingispawsible33@yahoo.com
+            </a>
+          </li>
+          <li>
+            <span className="fa fa-phone" /> (904) 373-5097
+          </li>
         </ul>
       </Col>
       <Col md="6">

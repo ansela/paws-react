@@ -27,6 +27,10 @@ app.use(passport.initialize());
 app.use("/announcements", announcements);
 app.use("/auth", auth);
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "build/index.html"));
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
