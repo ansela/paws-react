@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Moment from "moment";
 import { Card, CardBody, CardText, CardFooter, Button } from "reactstrap";
 
 import AnnouncementEditor from "./AnnouncementEditor";
+
+import { getUrl } from "../utils/api-utils";
 
 export default class Announcement extends React.Component {
   static propTypes = {
@@ -29,10 +30,11 @@ export default class Announcement extends React.Component {
   };
 
   saveAnnouncement = async announcement => {
-    const response = await fetch(`/announcements/${announcement._id}`, {
+    const response = await fetch(getUrl(`/announcements/${announcement._id}`), {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("jwtToken")
       },
       body: JSON.stringify(announcement)
     });
@@ -54,8 +56,11 @@ export default class Announcement extends React.Component {
   };
 
   deleteAnnouncement = async id => {
-    const response = await fetch(`/announcements/${id}`, {
-      method: "DELETE"
+    const response = await fetch(getUrl(`/announcements/${id}`), {
+      method: "DELETE",
+      headers: {
+        Authorization: localStorage.getItem("jwtToken")
+      }
     });
     const body = await response.json();
 

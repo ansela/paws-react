@@ -5,6 +5,8 @@ import { Button } from "reactstrap";
 import Announcement from "./Announcement";
 import AnnouncementEditor from "./AnnouncementEditor";
 
+import { getUrl } from "../utils/api-utils";
+
 export default class Announcements extends React.Component {
   static PropTypes = {
     announcements: PropTypes.array,
@@ -44,10 +46,11 @@ export default class Announcements extends React.Component {
       .catch(err => console.error(err));
   };
   saveAnnouncement = async message => {
-    const response = await fetch("/announcements", {
+    const response = await fetch(getUrl("/announcements"), {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("jwtToken")
       },
       body: JSON.stringify({ message })
     });
