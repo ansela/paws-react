@@ -4,43 +4,15 @@ import { Link } from "react-router-dom";
 
 import Header from "../components/Heading";
 
-import { getUrl } from "../utils/api-utils";
-
 import Home1 from "../assets/home/home1.jpg";
 import Home4 from "../assets/home/home4.jpg";
 import Home3 from "../assets/home/home3.jpg";
 
 export default class Home extends React.Component {
-  state = { announcements: [] };
-
-  componentDidMount() {
-    this.getAnnouncements()
-      .then(res => this.setState({ announcements: res }))
-      .catch(err => console.error(err));
-  }
-
-  getAnnouncements = async () => {
-    const response = await fetch(getUrl("/announcements"));
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message);
-    }
-    return body;
-  };
   render() {
-    const { announcements } = this.state;
     return (
       <Container fluid className="home-content">
         <Header text="Welcome" />
-        {announcements.map(a => {
-          console.log(a);
-          return (
-            <Alert key={a._id} color="warning">
-              {a.message}
-            </Alert>
-          );
-        })}
         <Row>
           <Col sm="12" md="4">
             <Link to="/sitting">
