@@ -7,11 +7,8 @@ import Training from "../pages/Training";
 import Sitting from "../pages/Sitting";
 import Reviews from "../pages/Reviews";
 import Contact from "../pages/Contact";
-import Admin from "../pages/Admin";
 
 import NotFound from "../pages/NotFound";
-import NetworkError from "../pages/NetworkError";
-import Login from "../pages/Login";
 
 const Content = () => (
   <div className="content">
@@ -22,9 +19,6 @@ const Content = () => (
       <Route path="/sitting" component={Sitting} />
       <Route path="/reviews" component={Reviews} />
       <Route path="/contact" component={Contact} />
-      <Route path="/admin" component={Admin} />
-      <Route path="/login" component={Login} />
-      <Route path="/error" component={NetworkError} />
       <Route component={NotFound} />
     </Switch>
   </div>
